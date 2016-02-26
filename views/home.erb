@@ -1,0 +1,7 @@
+<%= @user.follows_id  %>
+
+<% @user.follows_id do |id|%>
+<p>id</p>
+<p> First Name:<%= @user.find(id).fname %></p>
+<p> Last Name: <%= @user.find(id).fname %></p>
+<% end %>
