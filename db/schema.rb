@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226152929) do
+ActiveRecord::Schema.define(version: 20160226173303) do
+
+  create_table "Users", force: :cascade do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "email"
+    t.string   "password"
+    t.datetime "created_at", default: '2016-02-26 16:56:20'
+  end
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id"
@@ -19,13 +27,10 @@ ActiveRecord::Schema.define(version: 20160226152929) do
     t.datetime "created_at", default: '2016-02-26 16:56:20'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "fname"
-    t.string   "lname"
-    t.string   "email"
-    t.string   "password"
+  create_table "userfollows", force: :cascade do |t|
     t.string   "follows_id"
-    t.datetime "created_at", default: '2016-02-26 16:56:20'
+    t.string   "follower_id"
+    t.datetime "created_at",  default: '2016-02-26 18:10:14'
   end
 
 end

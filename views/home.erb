@@ -1,7 +1,15 @@
-<%= @user.follows_id  %>
-
-<% @user.follows_id do |id|%>
-<p>id</p>
-<p> First Name:<%= @user.find(id).fname %></p>
-<p> Last Name: <%= @user.find(id).fname %></p>
-<% end %>
+<div id="homeStage">
+	<div id="friendsContainer">
+		
+	</div>
+	<div id="posts">
+	<div id="postsContainer">
+		<%= @user.posts.find(1).message %>
+		<%= @user.posts.find(1).created_at %>
+	</div>
+	<div id="newPost">
+		
+	</div>
+		
+	</div>
+</div>
