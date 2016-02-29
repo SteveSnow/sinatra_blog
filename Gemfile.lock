@@ -25,6 +25,8 @@ GEM
     multipart-post (2.0.0)
     pg (0.18.4)
     rack (1.6.4)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (1.5.3)
       rack
     rake (10.5.0)
@@ -52,6 +54,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   pg
+  rack-flash3
   rake
   sendgrid-ruby
   sinatra

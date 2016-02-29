@@ -7,6 +7,8 @@ gem 'sinatra'
 gem 'sendgrid-ruby'
 gem 'activerecord'
 gem 'sinatra-activerecord'
+gem 'rack-flash3'
+
 
 group :development do
 	gem 'sqlite3'

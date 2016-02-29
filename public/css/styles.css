@@ -1,25 +1,25 @@
 #homeStage {
     display: flex;
 }
-#posts{
-	margin-left: 1em;
-	width: 100%;
-padding-right: 1em;
-padding-bottom: 1em;
+
+#posts {
+    margin-left: 1em;
+    width: 100%;
+    padding-right: 1em;
+    padding-bottom: 1em;
 }
 
 #friendsContainer {
     width: 15em;
     height: 40em;
-    background-color: blue;
     margin-left: 1em;
+    border: 1px black solid;
 }
 
 #postsContainer {
     width: 100%;
     height: 30em;
-    background-color: blue;
-    /*margin-bottom: 1em;*/
+    border: 1px black solid;
 }
 
 #newPost {
@@ -27,5 +27,90 @@ padding-bottom: 1em;
     clear: left;
     width: 100%;
     height: 9em;
-    background-color: red;
+    border: 1px black solid;
+}
+
+.navbar {
+    float: right;
+    margin-right: 50px;
+}
+
+.navbar a {
+    border: 2px solid black;
+    padding: 2px;
+    color: black;
+    text-decoration: none;
+}
+
+table.test td {
+    background-color: rgba(0, 171, 169, .6);
+    margin: 12px 12px 12px 12px;
+    padding: 12px 12px 12px 12px;
+    border-radius: 25px;
+    width: 50%;
+}
+
+table.test {
+    border-collapse: separate;
+    border-spacing: 10px;
+    border-collapse: expression('separate', cellSpacing='10px');
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.bigfeed {
+    height: 550px;
+    /*overflow: scroll;*/
+}
+
+.delete {
+    float: right;
+    margin-top: 1em;
+}
+
+.datetime {
+    font-size: 10px;
+    font-style: italic;
+float: left;
+margin-top: 1em;
+}
+
+.datetime_nodelete {
+    font-size: 10px;
+    font-style: italic;
+float: right;
+margin-top: 1em;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1%;
+    overflow: hidden;
+}
+
+.column1 {
+    float: left;
+    width: 35%;
+    margin-left: 8%;
+}
+
+.column2 {
+    width: 48%;
+    float: left;
+}
+
+textarea#styled {
+    width: 90%;
+    /*margin-top: 2%;*/
+    height: 120px;
+    border: 3px solid #cccccc;
+    padding: 5px;
+    font-family: Tahoma, sans-serif;
+    background-position: bottom right;
+    background-repeat: no-repeat;
 }

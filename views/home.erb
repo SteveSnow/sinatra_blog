@@ -1,14 +1,40 @@
 <div id="homeStage">
 	<div id="friendsContainer">
-		<%= @user.full_name %>
+		<% @users.each do |user| %>
+			<a href='/profile/<%= user.id %>'><%= user.fname %><%= user.lname %></a><br>
+		<% end %>
 	</div>
 	<div id="posts">
 	<div id="postsContainer">
-		<%= @user.posts.find(1).message %>
-		<%= @user.posts.find(1).created_at %>
+		<div class="bigfeed">
+		<table class="test">
+		<% posts = @posts.last(10).reverse %>
+		<% posts.each do |post|%>
+		  <tr>
+		  <td class="post">
+		  	<%= post.user.fname %> <br><%= post.message %><br>
+		  	<span class="datetime_nodelete"><%= post.created_at.strftime("%I:%M%p %m/%d/%y ") %></span>
+		 	 		<% if session[:user_id] == post.user_id %>
+		 			 	<form action="/delete-post" method="POST">
+		  				<input type="hidden" name="post_id" value="<%= post.id %>">
+		  			</form>
+		  		<% else %>
+		  			<span class="viewprofile"><a href="/profile/<%= post.user.id %>">View Profile</a></span>
+		  		<% end %>
+		  		</tr>
+		</td>
+		<% end %>
+
+		</table>
+		</div>
 	</div>
 	<div id="newPost">
-		
+		<form method="POST" action="/newpost"> 
+			<input type="hidden" name="user_id" value="<%= session[:user_id] %>">     
+<!-- 			<label for="text">What's on your mind?</label>    -->
+			<textarea id="styled" name="message"></textarea>   
+			<input type="submit"> 
+		</form>
 	</div>
 		
 	</div>
