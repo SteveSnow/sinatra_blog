@@ -6,12 +6,34 @@
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+		<div class="navbar">
+
+
+			<% if session[:user_id] %>
+				<a href="/profile/<%= current_user.id %>">Profile</a>
+				<a href="/posts">Posts</a>
+			<% end %>
+			
+			<a href="/users">Users</a>
+
+			<% if session[:user_id] %>
+			  <a href="/logout">Log Out</a>
+			<% end %>
+
+			<% if !session[:user_id] %>
+				<a href="/signin">Log In</a>
+			<% end %>
+
+			<% if !session[:user_id] %>
+				<a href="/users/new">Sign Up</a>
+			<% end %>
+		
+			<% if session[:user_id] %>
+				<h2>Welcome, <%=@user.fname %>! </h2>
+			<% end %>
+		</div>
+
 <%= yield %>
 </body>
 <script src="scripts/main.js" type="text/javascript" charset="utf-8" ></script>
