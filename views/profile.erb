@@ -1,0 +1,48 @@
+
+<div class="container">
+	<div class="column1">
+		<p> First Name: <%= @user.fname %></p>
+		<% if session[:user_id] %>
+			<p> Last Name: <%= @user.lname %></p>
+			<p> Email Address: <%= @user.email %></p>
+
+			<% if session[:user_id] == @user.id %>	
+				<a href="/settings/<%= @current_user.id %>">Edit your profile</a>
+			<% end %>
+		<% end %>
+	</div>
+
+		<%= @user.fname %> has written <%= @posts.length %> posts!
+
+	<div class="column2 bigfeed">
+		<table class="test">
+
+			<tr>
+				<% if session[:user_id] %>
+					<% posts = @posts.all.reverse %>
+					<% posts.each do |post| %>
+						<td><%= post.message %><br><span class="datetime"><%= post.created_at.strftime("%I:%M%p <br> %m/%d/%Y ") %></span>
+						  <% if session[:user_id] == post.user_id %>
+					 	 		<form action="/delete-post" method="POST">
+					  			<input type="hidden" name="post_id" value="<%= post.id %>">
+					  			<span class="delete"><button type="submit">Delete</button></span>
+					  		</form>			 
+					    <% end %>
+					  </td>	
+			</tr>
+					<% end %>
+			  <% end %>
+
+
+			<% if !session[:user_id] %>
+				<tr>
+					<% posts = @posts.last(3).reverse %>
+					<% posts.each do |post| %>
+						<td class="post"><%= post.message %><br><%= post.created_at.strftime("%I:%M%p <br> %m/%d/%Y ") %></td>
+				</tr>
+					<% end %>
+			<% end %>
+
+		</table>
+	</div>
+</div>
