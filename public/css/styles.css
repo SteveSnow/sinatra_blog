@@ -63,8 +63,9 @@ table.test {
 }
 
 .bigfeed {
-    height: 550px;
-    /*overflow: scroll;*/
+    height: 30em;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .delete {

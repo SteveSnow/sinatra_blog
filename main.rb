@@ -46,7 +46,7 @@ post '/signin' do
 		redirect '/'
 	else
 		flash[:alert] = "Login failed."
-		redirect '/'
+		redirect '/users/new'
 	end
 end
 
@@ -121,5 +121,20 @@ post '/delete-profile' do
 		redirect back
 	end
 
+end
+
+get '/users/new' do 
+	erb :signup
+end
+
+post '/users/new' do
+	user = User.create(
+		fname:(params[:fname]),
+		lname:(params[:lname]),
+		email:(params[:email]),
+		password:(params[:password]))
+	session[:user_id] = user.id
+	flash[:notice] = "You're signed in!"
+	redirect '/posts'
 end
 
